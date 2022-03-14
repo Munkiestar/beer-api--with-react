@@ -1,9 +1,37 @@
 .beer {
-  width: 35%;
-  margin: 2rem 0;
+  width: 100%;
+  margin: 1rem;
   cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 4px;
+  padding: 2.2rem;
+
+  display: flex;
+  align-items: center;
 
   &__img {
+    width: 20%;
+  }
+
+  a {
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .beer {
     width: 30%;
+  }
+}
+
+@media only screen and (min-width: 768px) and(max-width: 1223px) {
+  .beer {
+    width: 35%;
+    margin: 2rem 0 2rem;
+
+    &__img {
+      width: 30%;
+    }
   }
 }

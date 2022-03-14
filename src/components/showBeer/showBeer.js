@@ -3,29 +3,20 @@ import "./showBeer.scss";
 
 import BeerCard from "../beerCard/beerCard";
 
-function ShowBeer(props) {
-  const beer_API = "https://api.punkapi.com/v2/beers";
+import { fetchBeerAPI } from "../../services/api";
 
+function ShowBeer() {
+  // state
   const [beers, setBeers] = useState([]);
-  const numOfBeers = 10;
 
-  // fetch data from api
-  const fetchAPI = async () => {
-    try {
-      const res = await fetch(beer_API);
-      const data = await res.json();
+  // number of beers on page
+  const numOfBeers = 15;
 
-      setBeers(data);
-    } catch (err) {
-      console.log("Error: ", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchAPI();
+  // fetch all data from api
+  useEffect(async () => {
+    setBeers(await fetchBeerAPI());
   }, []);
 
-  // console.log("beers: ", beers);
   return (
     <section className="beer-container">
       {beers &&
